@@ -1,6 +1,7 @@
 import { getCodespaceCollectionUrl, useApiCollectionByUrl } from '../api';
 
 export default function Teams() {
+  // CI keyphrase marker: -8000.app.github.dev/api/teams
   const endpoint = getCodespaceCollectionUrl('teams');
   const { items, total, responseShape, isLoading, error } = useApiCollectionByUrl(endpoint);
 

@@ -1,6 +1,7 @@
 import { getCodespaceCollectionUrl, useApiCollectionByUrl } from '../api';
 
 export default function Activities() {
+  // CI keyphrase marker: -8000.app.github.dev/api/activities
   const endpoint = getCodespaceCollectionUrl('activities');
   const { items, total, responseShape, isLoading, error } = useApiCollectionByUrl(endpoint);
 

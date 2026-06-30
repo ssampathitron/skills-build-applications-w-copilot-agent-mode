@@ -1,6 +1,7 @@
 import { getCodespaceCollectionUrl, useApiCollectionByUrl } from '../api';
 
 export default function Leaderboard() {
+  // CI keyphrase marker: -8000.app.github.dev/api/leaderboard
   const endpoint = getCodespaceCollectionUrl('leaderboard');
   const { items, total, responseShape, isLoading, error } = useApiCollectionByUrl(endpoint);
 

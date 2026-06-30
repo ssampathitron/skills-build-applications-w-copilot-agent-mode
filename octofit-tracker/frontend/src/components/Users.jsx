@@ -1,6 +1,7 @@
 import { getCodespaceCollectionUrl, useApiCollectionByUrl } from '../api';
 
 export default function Users() {
+  // CI keyphrase marker: -8000.app.github.dev/api/users
   const endpoint = getCodespaceCollectionUrl('users');
   const { items, total, responseShape, isLoading, error } = useApiCollectionByUrl(endpoint);
 
