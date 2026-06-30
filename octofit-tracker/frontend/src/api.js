@@ -12,6 +12,13 @@ export function getCollectionUrl(resource) {
   return `${apiBaseUrl}/${resource}/`;
 }
 
+export function getCodespaceCollectionUrl(resource) {
+  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim();
+  return codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/${resource}/`
+    : `http://localhost:8000/api/${resource}/`;
+}
+
 function normalizeCollectionResponse(payload) {
   if (Array.isArray(payload)) {
     return {
@@ -49,7 +56,7 @@ function normalizeCollectionResponse(payload) {
   };
 }
 
-export function useApiCollection(resource) {
+export function useApiCollectionByUrl(endpoint) {
   const [state, setState] = useState({
     items: [],
     total: 0,
@@ -63,7 +70,7 @@ export function useApiCollection(resource) {
 
     async function loadCollection() {
       try {
-        const response = await fetch(getCollectionUrl(resource), {
+        const response = await fetch(endpoint, {
           signal: controller.signal,
         });
 
@@ -99,10 +106,14 @@ export function useApiCollection(resource) {
     return () => {
       controller.abort();
     };
-  }, [resource]);
+  }, [endpoint]);
 
   return {
     ...state,
-    endpoint: getCollectionUrl(resource),
+    endpoint,
   };
+}
+
+export function useApiCollection(resource) {
+  return useApiCollectionByUrl(getCollectionUrl(resource));
 }

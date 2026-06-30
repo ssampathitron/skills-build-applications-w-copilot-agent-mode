@@ -1,7 +1,8 @@
-import { useApiCollection } from '../api';
+import { getCodespaceCollectionUrl, useApiCollectionByUrl } from '../api';
 
 export default function Workouts() {
-  const { items, total, responseShape, isLoading, error, endpoint } = useApiCollection('workouts');
+  const endpoint = getCodespaceCollectionUrl('workouts');
+  const { items, total, responseShape, isLoading, error } = useApiCollectionByUrl(endpoint);
 
   return (
     <section className="panel-card p-4 p-lg-5">
