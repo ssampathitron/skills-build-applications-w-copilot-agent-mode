@@ -13,7 +13,7 @@ export default function Workouts() {
           <p className="text-white-75 mb-0">Workout recommendations linked to focus areas, difficulty, and suggested athletes.</p>
         </div>
         <div className="meta-card">
-          <div className="meta-label">Endpoint</div>
+          <div className="meta-label">Endpoint.</div>
           <div className="meta-value">{endpoint}</div>
           <div className="meta-label mt-3">Response shape</div>
           <div className="meta-value text-capitalize">{responseShape}</div>
