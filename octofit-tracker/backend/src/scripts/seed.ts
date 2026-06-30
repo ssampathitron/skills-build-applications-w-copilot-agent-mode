@@ -25,7 +25,7 @@ async function seedDatabase(): Promise<void> {
       name: 'Summit Sprinters',
       mascot: 'Falcon',
       members: ['dev.cardio', 'nina.lift'],
-      points: 870,
+      points: 870,      
     },
     {
       name: 'Core Commanders',
